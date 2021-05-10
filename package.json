@@ -1,0 +1,135 @@
+{
+  "name": "example-config-provider",
+  "version": "0.0.1",
+  "description": "example config provider for kubernetes integrations",
+  "private": true,
+  "sideEffects": false,
+  "keywords": [],
+  "homepage": "https://github.com/clayrisser/example-config-provider",
+  "bugs": {
+    "url": "https://github.com/clayrisser/example-config-provider/issues",
+    "email": "email@clayrisser.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Clay Risser",
+    "email": "email@clayrisser.com",
+    "url": "https://clayrisser.com"
+  },
+  "files": [
+    "es",
+    "dist"
+  ],
+  "module": "es/main.js",
+  "main": "dist/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clayrisser/example-config-provider"
+  },
+  "scripts": {
+    "build": "make -s build",
+    "clean": "make -s clean",
+    "coverage": "make -s coverage",
+    "format": "make -s format",
+    "inc": "make -s inc",
+    "lint": "make -s lint",
+    "make": "make",
+    "prepare": "make -s prepare",
+    "purge": "make -s purge",
+    "report": "make -s report",
+    "spellcheck": "make -s spellcheck",
+    "start": "make -s start",
+    "test": "make -s test",
+    "test:ui": "make test-ui",
+    "test:watch": "make -s test-watch"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.14.0",
+    "@nestjs/common": "^7.6.15",
+    "@nestjs/config": "^0.6.3",
+    "@nestjs/core": "^7.6.15",
+    "@nestjs/platform-express": "^7.6.15",
+    "@nestjs/platform-fastify": "^7.6.15",
+    "@nestjs/swagger": "^4.8.0",
+    "apollo-server-core": "2.24.0",
+    "apollo-server-express": "^2.24.0",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "compose-middleware": "^5.0.1",
+    "core-js": "^3.12.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "fs-extra": "^10.0.0",
+    "get-port": "^5.1.1",
+    "knex": "0.95.4",
+    "mongodb": "^3.6.6",
+    "pg": "^8.6.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.0.0",
+    "swagger-ui-express": "^4.1.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.0",
+    "@babel/node": "^7.13.13",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-decorators": "^7.13.15",
+    "@babel/plugin-proposal-optional-chaining": "^7.13.12",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/ejs": "^3.0.6",
+    "@types/fs-extra": "^9.0.11",
+    "@types/jest": "^26.0.23",
+    "@types/swagger-ui-express": "^4.1.2",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-inline-import": "^3.0.0",
+    "babel-plugin-macros": "^3.1.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-transform-typescript-metadata": "^0.3.2",
+    "cloc": "^2.8.0",
+    "cspell": "^5.4.0",
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-spellcheck": "^0.0.17",
+    "jest": "^26.6.3",
+    "jest-sonar-reporter": "^2.0.0",
+    "lockfile-lint": "^4.6.2",
+    "majestic": "^1.8.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.0",
+    "typescript": "^4.2.4"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "eslintIgnore": [
+    "dist",
+    "es"
+  ],
+  "jest": {
+    "testRegex": "((/(tests|__tests__)((/|/[^_.\n][^/\n]*(/[^_.\n][^/\n]+)*/)[^_.\n][^/\n]*))|((/|/.*/)(([^_.\n][^/\n]*.(spec|test))|(spec|test)))).[jt]sx?$",
+    "testEnvironment": "node",
+    "verbose": true,
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist/",
+      "<rootDir>/es/"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/_setup.ts"
+    ]
+  },
+  "jestSonar": {
+    "reportPath": "node_modules/.tmp/reports",
+    "reportFile": "test-report.xml",
+    "indent": 4
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "none"
+  }
+}

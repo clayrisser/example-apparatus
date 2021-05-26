@@ -1,3 +1,4 @@
-import ConfigModule from './config';
+import SocketModule from './socket';
+import PlugModule from './plug';
 
-export default [ConfigModule];
+export default [PlugModule, SocketModule];

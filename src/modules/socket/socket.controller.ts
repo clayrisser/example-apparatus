@@ -10,17 +10,23 @@ export class SocketController {
 
   @Get('config')
   async getRoot() {
+    console.log('socket config');
     return { hello: 'world' };
   }
 
   @Post('created')
-  async postCreated(@Body() _body: CreatedBody): Promise<void> {
+  async postCreated(@Body() body: CreatedBody): Promise<void> {
     console.log('socket created');
   }
 
   @Post('coupled')
   async postCoupled(@Body() _body: CoupledBody): Promise<void> {
     console.log('socket coupled');
+  }
+
+  @Post('updated')
+  async postUpdated(@Body() _body: CoupledBody): Promise<void> {
+    console.log('socket updated');
   }
 
   @Post('decoupled')

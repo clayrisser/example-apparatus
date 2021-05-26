@@ -14,13 +14,18 @@ export class PlugController {
   }
 
   @Post('created')
-  async postCreated(@Body() _body: CreatedBody): Promise<void> {
+  async postCreated(@Body() body: CreatedBody): Promise<void> {
     console.log('plug created');
   }
 
   @Post('coupled')
   async postCoupled(@Body() _body: CoupledBody): Promise<void> {
     console.log('plug coupled');
+  }
+
+  @Post('updated')
+  async postUpdated(@Body() _body: CoupledBody): Promise<void> {
+    console.log('plug updated');
   }
 
   @Post('decoupled')

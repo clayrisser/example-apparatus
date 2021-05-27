@@ -10,6 +10,7 @@ export class PlugController {
 
   @Get('config')
   async getRoot() {
+    console.log('plug config');
     return { hello: 'world' };
   }
 

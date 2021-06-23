@@ -8,20 +8,20 @@ export class PlugController {
     return 'pong';
   }
 
-  @Get('config')
-  async getRoot() {
+  @Post('config')
+  async postConfig(@Body() body: PostConfigBody) {
     console.log('plug config');
-    return { hello: 'world' };
+    return body?.plugMeta || {};
   }
 
   @Post('created')
-  async postCreated(@Body() body: CreatedBody): Promise<void> {
+  async postCreated(@Body() _body: CreatedBody): Promise<void> {
     console.log('plug created');
   }
 
   @Post('coupled')
-  async postCoupled(@Body() _body: CoupledBody): Promise<void> {
-    console.log('plug coupled');
+  async postCoupled(@Body() body: CoupledBody): Promise<void> {
+    console.log('plug coupled', body?.socketConfig);
   }
 
   @Post('updated')
@@ -48,6 +48,8 @@ export interface CreatedBody {
 export interface CoupledBody {
   version: string;
   plug: Plug;
+  socketConfig: Meta;
+  plugConfig: Mata;
   socket: Socket;
 }
 
@@ -61,6 +63,12 @@ export interface DeletedBody {
   version: string;
   plug: Plug;
   socket: Socket;
+}
+
+export interface PostConfigBody {
+  version: string;
+  plug: Plug;
+  plugMeta: Map;
 }
 
 export type Plug = Map;

@@ -11,7 +11,7 @@ export class SocketController {
   @Post('config')
   async postConfig(@Body() body: PostConfigBody) {
     console.log('socket config');
-    return body?.socketMeta || {};
+    return body?.socket?.spec?.data || {};
   }
 
   @Post('created')

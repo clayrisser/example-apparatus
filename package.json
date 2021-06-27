@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.14.0",
+    "@kubernetes/client-node": "^0.15.0",
     "@nestjs/common": "^7.6.15",
     "@nestjs/config": "^0.6.3",
     "@nestjs/core": "^7.6.15",
@@ -62,6 +63,7 @@
     "fs-extra": "^10.0.0",
     "get-port": "^5.1.1",
     "knex": "0.95.4",
+    "kustomize-operator": "^0.0.13",
     "mongodb": "^3.6.6",
     "pg": "^8.6.0",
     "reflect-metadata": "^0.1.13",

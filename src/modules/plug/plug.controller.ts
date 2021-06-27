@@ -11,7 +11,7 @@ export class PlugController {
   @Post('config')
   async postConfig(@Body() body: PostConfigBody) {
     console.log('plug config');
-    return body?.plug?.spec?.data || {};
+    return body?.data || {};
   }
 
   @Post('created')
@@ -48,8 +48,8 @@ export interface CreatedBody {
 export interface CoupledBody {
   version: string;
   plug: Plug;
-  socketConfig: Meta;
-  plugConfig: Mata;
+  socketConfig: Map;
+  plugConfig: Map;
   socket: Socket;
 }
 
@@ -66,8 +66,9 @@ export interface DeletedBody {
 }
 
 export interface PostConfigBody {
-  version: string;
+  data: Map;
   plug: Plug;
+  version: string;
 }
 
 export type Plug = Map;

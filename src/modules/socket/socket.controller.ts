@@ -11,7 +11,7 @@ export class SocketController {
   @Post('config')
   async postConfig(@Body() body: PostConfigBody) {
     console.log('socket config');
-    return body?.socket?.spec?.data || {};
+    return body?.data || {};
   }
 
   @Post('created')
@@ -66,9 +66,9 @@ export interface DeletedBody {
 }
 
 export interface PostConfigBody {
-  version: string;
+  data: Map;
   socket: Socket;
-  socketMeta: Map;
+  version: string;
 }
 
 export type Plug = Map;

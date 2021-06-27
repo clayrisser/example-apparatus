@@ -4,7 +4,7 @@
  * File Created: 23-06-2021 09:48:46
  * Author: Clay Risser <email@clayrisser.com>
  * -----
- * Last Modified: 27-06-2021 03:14:38
+ * Last Modified: 27-06-2021 05:58:01
  * Modified By: Clay Risser <email@clayrisser.com>
  * -----
  * Silicon Hills LLC (c) Copyright 2021
@@ -23,14 +23,7 @@
  */
 
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import {
-  ConfigBody,
-  CoupledBody,
-  CreatedBody,
-  DecoupledBody,
-  DeletedBody,
-  UpdatedBody
-} from '~/types';
+import { HashMap, Plug, Socket } from '~/types';
 
 @Controller('socket')
 export class SocketController {
@@ -69,4 +62,43 @@ export class SocketController {
   async postDeleted(@Body() _body: DeletedBody): Promise<void> {
     console.log('socket deleted');
   }
+}
+
+export interface CreatedBody {
+  socket: Socket;
+  version: string;
+}
+
+export interface CoupledBody {
+  plug: Plug;
+  plugConfig: HashMap<string>;
+  socket: Socket;
+  socketConfig: HashMap<string>;
+  version: string;
+}
+export interface UpdatedBody {
+  version: string;
+  plug: Plug;
+  socketConfig: HashMap<string>;
+  plugConfig: HashMap<string>;
+  socket: Socket;
+}
+
+export interface DecoupledBody {
+  plug: Plug;
+  socket: Socket;
+  version: string;
+}
+
+export interface DeletedBody {
+  plug: Plug;
+  socket: Socket;
+  version: string;
+}
+
+export interface ConfigBody {
+  data: HashMap<string>;
+  socket: Socket;
+  vars: HashMap<string>;
+  version: string;
 }

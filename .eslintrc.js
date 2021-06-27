@@ -4,7 +4,7 @@
  * File Created: 23-06-2021 09:48:46
  * Author: Clay Risser <email@clayrisser.com>
  * -----
- * Last Modified: 27-06-2021 02:37:05
+ * Last Modified: 27-06-2021 06:05:33
  * Modified By: Clay Risser <email@clayrisser.com>
  * -----
  * Silicon Hills LLC (c) Copyright 2021
@@ -24,9 +24,9 @@
 
 const fs = require('fs');
 
-const skipWords = JSON.parse(fs.readFileSync('../settings.json').toString())[
-  'cSpell.words'
-];
+const skipWords = JSON.parse(
+  fs.readFileSync('.vscode/settings.json').toString()
+)['cSpell.words'];
 
 module.exports = {
   extends: ['airbnb-typescript/base', 'prettier'],
@@ -76,7 +76,7 @@ module.exports = {
         strings: true,
         identifiers: true,
         lang: 'en_US',
-        skipWords: skipWords,
+        skipWords,
         skipIfMatch: ['http?://[^s]*', '^[-\\w]+/[-\\w\\.]+$'],
         skipWordIfMatch: [],
         minLength: 3

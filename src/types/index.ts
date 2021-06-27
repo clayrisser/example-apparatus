@@ -1,10 +1,10 @@
 /*
- * File: /src/types.ts
+ * File: /src/types/index.ts
  * Project: example-config-provider
  * File Created: 23-06-2021 09:48:46
  * Author: Clay Risser <email@clayrisser.com>
  * -----
- * Last Modified: 27-06-2021 02:33:37
+ * Last Modified: 27-06-2021 03:13:52
  * Modified By: Clay Risser <email@clayrisser.com>
  * -----
  * Silicon Hills LLC (c) Copyright 2021
@@ -24,6 +24,7 @@
 
 import { GraphbackContext } from 'graphback';
 import { Request, Response } from 'express';
+import { Plug, Socket } from './integrationOperator';
 
 export enum Adapter {
   Express = 'express',
@@ -39,4 +40,42 @@ export interface HashMap<T = any> {
   [key: string]: T;
 }
 
-export type Map = HashMap<Map>;
+export interface CreatedBody {
+  plug: Plug;
+  version: string;
+}
+
+export interface CoupledBody {
+  plug: Plug;
+  plugConfig: HashMap<string>;
+  socket: Socket;
+  socketConfig: HashMap<string>;
+  version: string;
+}
+export interface UpdatedBody {
+  version: string;
+  plug: Plug;
+  socketConfig: HashMap<string>;
+  plugConfig: HashMap<string>;
+  socket: Socket;
+}
+
+export interface DecoupledBody {
+  plug: Plug;
+  socket: Socket;
+  version: string;
+}
+
+export interface DeletedBody {
+  plug: Plug;
+  socket: Socket;
+  version: string;
+}
+
+export interface ConfigBody {
+  data: HashMap<string>;
+  plug: Plug;
+  version: string;
+}
+
+export * from './integrationOperator';

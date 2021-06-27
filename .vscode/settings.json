@@ -3,6 +3,7 @@
     "fastify",
     "graphback",
     "healthz",
+    "kubernetes",
     "kustomize",
     "namespace",
     "namespaced",

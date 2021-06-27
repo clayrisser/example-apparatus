@@ -4,7 +4,7 @@
  * File Created: 23-06-2021 09:48:46
  * Author: Clay Risser <email@clayrisser.com>
  * -----
- * Last Modified: 27-06-2021 02:33:57
+ * Last Modified: 27-06-2021 03:13:42
  * Modified By: Clay Risser <email@clayrisser.com>
  * -----
  * Silicon Hills LLC (c) Copyright 2021
@@ -23,7 +23,14 @@
  */
 
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { Map } from '~/types';
+import {
+  ConfigBody,
+  CoupledBody,
+  CreatedBody,
+  DecoupledBody,
+  DeletedBody,
+  UpdatedBody
+} from '~/types';
 
 @Controller('plug')
 export class PlugController {
@@ -33,7 +40,7 @@ export class PlugController {
   }
 
   @Post('config')
-  async postConfig(@Body() body: PostConfigBody) {
+  async postConfig(@Body() body: ConfigBody) {
     console.log('plug config');
     return body?.data || {};
   }
@@ -49,7 +56,7 @@ export class PlugController {
   }
 
   @Post('updated')
-  async postUpdated(@Body() _body: CoupledBody): Promise<void> {
+  async postUpdated(@Body() _body: UpdatedBody): Promise<void> {
     console.log('plug updated');
   }
 
@@ -63,38 +70,3 @@ export class PlugController {
     console.log('plug deleted');
   }
 }
-
-export interface CreatedBody {
-  version: string;
-  plug: Plug;
-}
-
-export interface CoupledBody {
-  version: string;
-  plug: Plug;
-  socketConfig: Map;
-  plugConfig: Map;
-  socket: Socket;
-}
-
-export interface DecoupledBody {
-  version: string;
-  plug: Plug;
-  socket: Socket;
-}
-
-export interface DeletedBody {
-  version: string;
-  plug: Plug;
-  socket: Socket;
-}
-
-export interface PostConfigBody {
-  data: Map;
-  plug: Plug;
-  version: string;
-}
-
-export type Plug = Map;
-
-export type Socket = Map;

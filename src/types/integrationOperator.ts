@@ -1,10 +1,10 @@
 /*
- * File: /src/integrationOperator.ts
+ * File: /src/types/integrationOperator.ts
  * Project: example-config-provider
  * File Created: 27-06-2021 00:13:44
  * Author: Clay Risser <email@clayrisser.com>
  * -----
- * Last Modified: 27-06-2021 02:33:45
+ * Last Modified: 27-06-2021 03:09:14
  * Modified By: Clay Risser <email@clayrisser.com>
  * -----
  * Silicon Hills LLC (c) Copyright 2021
@@ -23,15 +23,15 @@
  */
 
 import { Var } from 'kustomize-operator';
-import { Container } from '@kubernetes/client-node';
+import { V1Container } from '@kubernetes/client-node';
 import { HashMap } from '~/types';
 
 export interface Socket {
-  spec?: SocketSpec;
+  spec?: SocketSpec; // SocketSpec `json:"spec,omitempty"`
 }
 
 export interface Plug {
-  spec?: PlugSpec;
+  spec?: PlugSpec; // PlugSpec `json:"spec,omitempty"`
 }
 
 export interface PlugSpec {
@@ -52,7 +52,7 @@ export interface PlugSpec {
 }
 
 export interface SocketSpec {
-  apparatus?: SpecApparatus; // *SpecApparatus `json:"apparatus,omitempty"`
+  apparatus?: Apparatus; // *SpecApparatus `json:"apparatus,omitempty"`
   config?: HashMap<string>; // map[string]string `json:"config,omitempty"`
   configConfigMapName?: string; // string `json:"configConfigMapName,omitempty"`
   configMapper?: HashMap<string>; // map[string]string `json:"configMapper,omitempty"`
@@ -68,7 +68,7 @@ export interface SocketSpec {
 }
 
 export interface Apparatus {
-  containers?: Container[]; // []*v1.Container `json:"containers,omitempty"`
+  containers?: V1Container[]; // []*v1.Container `json:"containers,omitempty"`
   endpoint?: string; // string `json:"endpoint,omitempty"`
 }
 
@@ -83,6 +83,16 @@ export interface Resource {
   when?: When; // When `json:"when,omitempty"`
 }
 
-export enum Do {}
+export enum Do {
+  Apply = 'apply',
+  Delete = 'delete'
+}
 
-export enum When {}
+export enum When {
+  Broken = 'broken',
+  Coupled = 'coupled',
+  Created = 'created',
+  Decoupled = 'decoupled',
+  Deleted = 'deleted',
+  Updated = 'updated'
+}

@@ -1,13 +1,13 @@
 {
-  "name": "example-config-provider",
+  "name": "example-apparatus",
   "version": "0.0.1",
-  "description": "example config provider for kubernetes integrations",
+  "description": "example apparatus for kubernetes integration operator",
   "private": true,
   "sideEffects": false,
   "keywords": [],
-  "homepage": "https://github.com/clayrisser/example-config-provider",
+  "homepage": "https://github.com/clayrisser/example-apparatus",
   "bugs": {
-    "url": "https://github.com/clayrisser/example-config-provider/issues",
+    "url": "https://github.com/clayrisser/example-apparatus/issues",
     "email": "email@clayrisser.com"
   },
   "license": "MIT",
@@ -24,7 +24,7 @@
   "main": "dist/main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/clayrisser/example-config-provider"
+    "url": "https://github.com/clayrisser/example-apparatus"
   },
   "scripts": {
     "build": "make -s build",

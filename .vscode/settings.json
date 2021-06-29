@@ -9,7 +9,8 @@
     "namespaced",
     "nestjs",
     "omitempty",
-    "risser"
+    "risser",
+    "siliconhills"
   ],
   "psi-header.variables": [["projectCreationYear", "2021"]],
   "psi-header.config": {

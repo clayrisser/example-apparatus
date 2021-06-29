@@ -137,6 +137,6 @@
     "trailingComma": "none"
   },
   "docker": {
-    "registry": "silicon-hills"
+    "registry": "siliconhills"
   }
 }

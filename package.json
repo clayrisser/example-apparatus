@@ -135,5 +135,8 @@
   "prettier": {
     "singleQuote": true,
     "trailingComma": "none"
+  },
+  "docker": {
+    "registry": "silicon-hills"
   }
 }
